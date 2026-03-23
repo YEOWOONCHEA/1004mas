@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1004MAS | Tactical Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body class="legion-theme">
+    <div class="app-container">
+    <header class="main-header">
+        <div class="header-left">
+            <h1 class="main-title" style="font-size: 18px;">1004MAS <span style="font-weight: 300; opacity: 0.5; font-size: 14px;">| TACTICAL INTELLIGENCE</span></h1>
+            <div class="status-indicator">
+                <div class="dot"></div>
+                <span>SYSTEM ONLINE</span>
+            </div>
+        </div>
+        <div class="header-right" style="display: flex; gap: 24px; align-items: center;">
+            <div class="status-item"><span class="label" style="font-size: 10px; color: var(--text-dim);">VIX</span> <span class="highlight">14.5</span></div>
+            <div class="status-item"><span class="label" style="font-size: 10px; color: var(--text-dim);">FX</span> <span class="highlight">1,345</span></div>
+            <div class="status-item"><span class="label" style="font-size: 10px; color: var(--text-dim);">RISK</span> <span style="color: var(--emerald-up); font-weight: bold;">LOW</span></div>
+            <button class="combat-ready-btn"><i class="fas fa-crosshairs"></i> COMBAT READY</button>
+        </div>
+    </header>
+
+    <div class="dashboard-content">
+        <main class="tactical-area">
+            <!-- Top Stats Grid (Bento Item) -->
+            <section class="top-stats-grid">
+                <div class="stat-card">
+                    <div class="label">TOTAL ASSETS</div>
+                    <div class="value">12,450,000 <span class="unit">KRW</span></div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">PNL TODAY</div>
+                    <div class="value" style="color: var(--emerald-up);">+452,000 <span class="unit">(+3.7%)</span></div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">COMPOUND GOAL</div>
+                    <div class="value">15.0M <span class="unit">KRW</span></div>
+                </div>
+            </section>
+
+                <!-- 실시간 전술 상황판 (로그) -->
+                <div class="command-logs-container">
+                    <div class="log-header">
+                        <i class="fas fa-terminal"></i> 실시간 전술 상황판 (TACTICAL LOGS)
+                        <span class="live-tag" style="font-size: 10px; opacity: 0.7;"><i class="fas fa-circle" style="color: var(--emerald-up); font-size: 6px;"></i> LIVE INTEL</span>
+                    </div>
+                    <div id="log-body" class="log-body"></div>
+                </div>
+
+                <!-- 하단 전략부 (Bento Grid) -->
+                <div class="formation-box" style="grid-column: span 6; height: 280px;">
+                    <div class="box-header"><i class="fas fa-crown"></i> 명예의 전당 (LEGEND)</div>
+                    <div id="legend-list" class="stock-scroll-list"></div>
+                </div>
+                <div class="formation-box" style="grid-column: span 6; height: 280px;">
+                    <div class="box-header"><i class="fas fa-gem"></i> 장기 가치 투자 (VALUE)</div>
+                    <div id="value-list" class="stock-scroll-list"></div>
+                </div>
+
+                <!-- 3중 전선 그리드 (더 크게 배치) -->
+                <div class="formation-box tier-1">
+                    <div class="box-header"><i class="fas fa-bolt"></i> 1군 선봉대 (TOP 10)</div>
+                    <div id="tier1-list" class="stock-scroll-list"></div>
+                </div>
+                <div class="formation-box tier-2">
+                    <div class="box-header"><i class="far fa-circle"></i> 2군 예비 전략</div>
+                    <div id="tier2-list" class="stock-scroll-list"></div>
+                </div>
+                <div class="formation-box tier-3">
+                    <div class="box-header"><i class="fas fa-fire"></i> 오늘 급등주</div>
+                    <div id="tier3-list" class="stock-scroll-list"></div>
+                </div>
+
+                <!-- 손익 장부 (Bento 와이드) -->
+                <div class="ledger-container">
+                    <div class="ledger-header">
+                        <i class="fas fa-book"></i> DAILY LEDGER
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="legion-table">
+                            <thead>
+                                <tr><th>날짜</th><th>종목</th><th>수익률</th><th>명령</th></tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+        </main>
+
+        <aside class="info-sidebar">
+            <div class="sidebar-card">
+                <div class="card-label">AI AUTO-TRADING</div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <div class="sidebar-card sentiment-box">
+                <div class="card-label">MARKET SENTIMENT</div>
+                <div class="gauge-container">
+                    <div class="gauge-base"></div>
+                    <div id="gauge-needle" class="gauge-needle"></div>
+                </div>
+                <div id="gauge-value" class="gauge-value">65</div>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="card-label">AI PREDICTION</div>
+                <p id="ai-prediction" style="font-size: 12px; line-height: 1.6; color: var(--text-dim);">
+                    에이전트들이 시장 델타값을 분석 중입니다...
+                </p>
+            </div>
+
+            <div class="upgrade-notif-sidebar" style="margin-top: auto; padding-top: 20px;">
+                <button id="btn-upgrade" class="upgrade-btn">SaaS 프리미엄 결제</button>
+            </div>
+        </aside>
+    </div>
+        </main>
+    </div>
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
