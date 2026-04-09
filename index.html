@@ -3,129 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1004MAS | Tactical Intelligence</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>1004MAS Global Tactical Command</title>
+    <!-- Tailwind CSS (CDN으로 외부 호스팅 지원) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0b0c10; color: #c5c6c7; }
+        
+        .glass-panel {
+            background: rgba(31, 40, 51, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(102, 252, 241, 0.15);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(69, 162, 158, 0.2);
+            border: 1px solid rgba(102, 252, 241, 0.4);
+        }
+
+        .glow-text {
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(102, 252, 241, 0.6);
+        }
+        .accent-text { color: #66fcf1; }
+        .accent-bg { background-color: #45a29e; }
+        
+        .status-indicator {
+            width: 12px; height: 12px; border-radius: 50%; display: inline-block;
+            background-color: #66fcf1;
+            box-shadow: 0 0 12px #66fcf1;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Number Animation */
+        .count-up { font-variant-numeric: tabular-nums; }
+    </style>
 </head>
-<body class="legion-theme">
-    <div class="app-container">
-    <header class="main-header">
-        <div class="header-left">
-            <h1 class="main-title" style="font-size: 18px;">1004MAS <span style="font-weight: 300; opacity: 0.5; font-size: 14px;">| TACTICAL INTELLIGENCE</span></h1>
-            <div class="status-indicator">
-                <div class="dot"></div>
-                <span>SYSTEM ONLINE</span>
+<body>
+    <div class="flex items-center justify-center min-h-screen relative z-10 w-full max-w-7xl mx-auto px-4 py-12">
+        <div class="w-full">
+            <div class="text-center mb-16 relative">
+                <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mb-4 select-none tracking-tighter flex flex-col md:flex-row justify-center items-center gap-1 md:gap-4" style="color: #fff; text-shadow: 0 0 30px rgba(102, 252, 241, 0.4), 0 0 10px rgba(102, 252, 241, 0.2);">
+                    <span>1004MAS</span> <span style="font-weight: 300; opacity: 0.9;">OMNISCIENCE</span>
+                </h1>
+                <p class="text-[#66fcf1] tracking-[0.1em] md:tracking-[0.3em] font-medium text-[10px] sm:text-xs md:text-base uppercase" style="text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);">Global Tactical Command Center</p>
+                <div class="mt-4 md:mt-6 flex justify-center items-center gap-2 md:gap-3">
+                    <span class="flex h-2 w-2 md:h-3 md:w-3 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#66fcf1] opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 md:h-3 md:w-3 bg-[#66fcf1]"></span>
+                    </span>
+                    <span class="text-gray-400 text-[9px] md:text-xs font-mono tracking-widest uppercase">All Systems Optimal</span>
+                </div>
+            </div>
+
+            <!-- 7 Nodes Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 auto-rows-fr">
+                
+                <!-- Node 1: 업비트 -->
+                <a href="https://YEOWOONCHEA.github.io/upbit_radar/" target="_blank" class="glass-panel p-8 group relative overflow-hidden flex flex-col h-full fade-in" style="animation-delay: 0.1s;">
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="h-2 w-full absolute top-0 left-0 bg-gradient-to-r from-red-600 to-red-400"></div>
+                    <div class="flex items-start justify-between mb-6 relative">
+                        <div class="bg-red-500/20 p-4 rounded-xl text-red-500">
+                            <i class="fab fa-bitcoin text-3xl"></i>
+                        </div>
+                        <span class="text-xs font-mono text-gray-500 tracking-wider">NODE 01</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">UPBIT RADAR</h2>
+                    <p class="text-gray-400 text-sm flex-grow">원화(KRW) 마켓 김치 프리미엄 및 세력 펌핑 코인 감시망</p>
+                    <div class="mt-6 text-red-500/80 text-sm font-semibold flex items-center">
+                        ENTER ZONE <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Node 2: 바이비트 -->
+                <a href="https://YEOWOONCHEA.github.io/bybit_radar/" target="_blank" class="glass-panel p-8 group relative overflow-hidden flex flex-col h-full fade-in" style="animation-delay: 0.2s;">
+                    <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="h-2 w-full absolute top-0 left-0 bg-gradient-to-r from-yellow-600 to-yellow-400"></div>
+                    <div class="flex items-start justify-between mb-6 relative">
+                        <div class="bg-yellow-500/20 p-4 rounded-xl text-yellow-500">
+                            <i class="fas fa-chart-line text-3xl"></i>
+                        </div>
+                        <span class="text-xs font-mono text-gray-500 tracking-wider">NODE 02</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">BYBIT RADAR</h2>
+                    <p class="text-gray-400 text-sm flex-grow">글로벌 선물/현물 달러(USDT) 거래대금 폭발 및 청산맵 동향</p>
+                    <div class="mt-6 text-yellow-500/80 text-sm font-semibold flex items-center">
+                        ENTER ZONE <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Node 3: 미장 -->
+                <a href="https://YEOWOONCHEA.github.io/us_stock_radar/" target="_blank" class="glass-panel p-8 group relative overflow-hidden flex flex-col h-full fade-in" style="animation-delay: 0.3s;">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="h-2 w-full absolute top-0 left-0 bg-gradient-to-r from-blue-600 to-blue-400"></div>
+                    <div class="flex items-start justify-between mb-6 relative">
+                        <div class="bg-blue-500/20 p-4 rounded-xl text-blue-500">
+                            <i class="fas fa-globe-americas text-3xl"></i>
+                        </div>
+                        <span class="text-xs font-mono text-gray-500 tracking-wider">NODE 03</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">US STOCKS</h2>
+                    <p class="text-gray-400 text-sm flex-grow">나스닥 및 월스트리트 빅테크 AI 외신 팩트 체크망 (Firecrawl)</p>
+                    <div class="mt-6 text-blue-500/80 text-sm font-semibold flex items-center">
+                        ENTER ZONE <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Node 4: 한국장 (Cloudflare Tunnel) -->
+                <a href="https://YEOWOONCHEA.github.io/krx_stock_radar/" target="_blank" class="glass-panel p-8 group relative overflow-hidden flex flex-col h-full fade-in" style="animation-delay: 0.4s;">
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="h-2 w-full absolute top-0 left-0 bg-gradient-to-r from-orange-600 to-orange-400"></div>
+                    <div class="flex items-start justify-between mb-6 relative">
+                        <div class="bg-orange-500/20 p-4 rounded-xl text-orange-500">
+                            <i class="fas fa-won-sign text-3xl"></i>
+                        </div>
+                        <span class="text-xs font-mono text-gray-500 tracking-wider">NODE 04</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">KRX RADAR</h2>
+                    <p class="text-gray-400 text-sm flex-grow">한국투자증권(KIS) 코스피/코스닥 체결강도 및 호가창 방어선</p>
+                    <div class="mt-6 text-orange-500/80 text-sm font-semibold flex items-center">
+                        ENTER ZONE <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Node 5: 유튜브 공장 -->
+                <a href="https://YEOWOONCHEA.github.io/youtube_factory/" target="_blank" class="glass-panel p-8 group relative overflow-hidden flex flex-col h-full fade-in" style="animation-delay: 0.5s;">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="h-2 w-full absolute top-0 left-0 bg-gradient-to-r from-purple-600 to-purple-400"></div>
+                    <div class="flex items-start justify-between mb-6 relative">
+                        <div class="bg-purple-500/20 p-4 rounded-xl text-purple-500">
+                            <i class="fab fa-youtube text-3xl"></i>
+                        </div>
+                        <span class="text-xs font-mono text-gray-500 tracking-wider">NODE 05</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">YOUTUBE FACTORY</h2>
+                    <p class="text-gray-400 text-sm flex-grow">글로벌 무인 다큐멘터리 채널 4개 자동화 렌더링 서버 상태</p>
+                    <div class="mt-6 text-purple-500/80 text-sm font-semibold flex items-center">
+                        ENTER ZONE <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Node 6: 스마트 비딩 -->
+                <a href="https://YEOWOONCHEA.github.io/smart_bidding/" target="_blank" class="glass-panel p-6 md:p-8 group relative overflow-hidden flex flex-col h-full fade-in" style="animation-delay: 0.6s;">
+                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="h-2 w-full absolute top-0 left-0 bg-gradient-to-r from-emerald-600 to-emerald-400"></div>
+                    <div class="flex items-start justify-between mb-4 md:mb-6 relative">
+                        <div class="bg-emerald-500/20 p-3 md:p-4 rounded-xl text-emerald-500">
+                            <i class="fas fa-gavel text-2xl md:text-3xl"></i>
+                        </div>
+                        <span class="text-[10px] md:text-xs font-mono text-gray-500 tracking-wider">NODE 06</span>
+                    </div>
+                    <h2 class="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">SMART BIDDING</h2>
+                    <p class="text-gray-400 text-xs md:text-sm flex-grow">국가 조달청 G2B 입찰 감시 및 고객사 외주 계약 수주 방어망</p>
+                    <div class="mt-4 md:mt-6 text-emerald-500/80 text-xs md:text-sm font-semibold flex items-center">
+                        ENTER ZONE <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Node 7: 야간 코스피 선물 -->
+                <a href="https://YEOWOONCHEA.github.io/kospi_futures_radar/" target="_blank" class="glass-panel p-6 md:p-8 group relative overflow-hidden flex flex-col h-full fade-in" style="animation-delay: 0.7s;">
+                    <div class="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="h-2 w-full absolute top-0 left-0 bg-gradient-to-r from-pink-600 to-pink-400"></div>
+                    <div class="flex items-start justify-between mb-4 md:mb-6 relative">
+                        <div class="bg-pink-500/20 p-3 md:p-4 rounded-xl text-pink-500">
+                            <i class="fas fa-moon text-2xl md:text-3xl"></i>
+                        </div>
+                        <span class="text-[10px] md:text-xs font-mono text-gray-500 tracking-wider">NODE 07</span>
+                    </div>
+                    <h2 class="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">NIGHT SUPREME</h2>
+                    <p class="text-gray-400 text-xs md:text-sm flex-grow">코스피 200 야간 선물 및 미증시 매크로 외인 롤오버 추적망</p>
+                    <div class="mt-4 md:mt-6 text-pink-500/80 text-xs md:text-sm font-semibold flex items-center">
+                        ENTER ZONE <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </a>
+
             </div>
         </div>
-        <div class="header-right" style="display: flex; gap: 24px; align-items: center;">
-            <div class="status-item"><span class="label" style="font-size: 10px; color: var(--text-dim);">VIX</span> <span class="highlight">14.5</span></div>
-            <div class="status-item"><span class="label" style="font-size: 10px; color: var(--text-dim);">FX</span> <span class="highlight">1,345</span></div>
-            <div class="status-item"><span class="label" style="font-size: 10px; color: var(--text-dim);">RISK</span> <span style="color: var(--emerald-up); font-weight: bold;">LOW</span></div>
-            <button class="combat-ready-btn"><i class="fas fa-crosshairs"></i> COMBAT READY</button>
-        </div>
-    </header>
-
-    <div class="dashboard-content">
-        <main class="tactical-area">
-            <!-- Top Stats Grid (Bento Item) -->
-            <section class="top-stats-grid">
-                <div class="stat-card">
-                    <div class="label">TOTAL ASSETS</div>
-                    <div class="value">12,450,000 <span class="unit">KRW</span></div>
-                </div>
-                <div class="stat-card">
-                    <div class="label">PNL TODAY</div>
-                    <div class="value" style="color: var(--emerald-up);">+452,000 <span class="unit">(+3.7%)</span></div>
-                </div>
-                <div class="stat-card">
-                    <div class="label">COMPOUND GOAL</div>
-                    <div class="value">15.0M <span class="unit">KRW</span></div>
-                </div>
-            </section>
-
-                <!-- 실시간 전술 상황판 (로그) -->
-                <div class="command-logs-container">
-                    <div class="log-header">
-                        <i class="fas fa-terminal"></i> 실시간 전술 상황판 (TACTICAL LOGS)
-                        <span class="live-tag" style="font-size: 10px; opacity: 0.7;"><i class="fas fa-circle" style="color: var(--emerald-up); font-size: 6px;"></i> LIVE INTEL</span>
-                    </div>
-                    <div id="log-body" class="log-body"></div>
-                </div>
-
-                <!-- 하단 전략부 (Bento Grid) -->
-                <div class="formation-box" style="grid-column: span 6; height: 280px;">
-                    <div class="box-header"><i class="fas fa-crown"></i> 명예의 전당 (LEGEND)</div>
-                    <div id="legend-list" class="stock-scroll-list"></div>
-                </div>
-                <div class="formation-box" style="grid-column: span 6; height: 280px;">
-                    <div class="box-header"><i class="fas fa-gem"></i> 장기 가치 투자 (VALUE)</div>
-                    <div id="value-list" class="stock-scroll-list"></div>
-                </div>
-
-                <!-- 3중 전선 그리드 (더 크게 배치) -->
-                <div class="formation-box tier-1">
-                    <div class="box-header"><i class="fas fa-bolt"></i> 1군 선봉대 (TOP 10)</div>
-                    <div id="tier1-list" class="stock-scroll-list"></div>
-                </div>
-                <div class="formation-box tier-2">
-                    <div class="box-header"><i class="far fa-circle"></i> 2군 예비 전략</div>
-                    <div id="tier2-list" class="stock-scroll-list"></div>
-                </div>
-                <div class="formation-box tier-3">
-                    <div class="box-header"><i class="fas fa-fire"></i> 오늘 급등주</div>
-                    <div id="tier3-list" class="stock-scroll-list"></div>
-                </div>
-
-                <!-- 손익 장부 (Bento 와이드) -->
-                <div class="ledger-container">
-                    <div class="ledger-header">
-                        <i class="fas fa-book"></i> DAILY LEDGER
-                    </div>
-                    <div class="table-wrapper">
-                        <table class="legion-table">
-                            <thead>
-                                <tr><th>날짜</th><th>종목</th><th>수익률</th><th>명령</th></tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
-        </main>
-
-        <aside class="info-sidebar">
-            <div class="sidebar-card">
-                <div class="card-label">AI AUTO-TRADING</div>
-                <label class="switch">
-                    <input type="checkbox" checked>
-                    <span class="slider round"></span>
-                </label>
-            </div>
-
-            <div class="sidebar-card sentiment-box">
-                <div class="card-label">MARKET SENTIMENT</div>
-                <div class="gauge-container">
-                    <div class="gauge-base"></div>
-                    <div id="gauge-needle" class="gauge-needle"></div>
-                </div>
-                <div id="gauge-value" class="gauge-value">65</div>
-            </div>
-
-            <div class="sidebar-card">
-                <div class="card-label">AI PREDICTION</div>
-                <p id="ai-prediction" style="font-size: 12px; line-height: 1.6; color: var(--text-dim);">
-                    에이전트들이 시장 델타값을 분석 중입니다...
-                </p>
-            </div>
-
-            <div class="upgrade-notif-sidebar" style="margin-top: auto; padding-top: 20px;">
-                <button id="btn-upgrade" class="upgrade-btn">SaaS 프리미엄 결제</button>
-            </div>
-        </aside>
     </div>
-        </main>
-    </div>
-    <!-- Scripts -->
-    <script src="app.js"></script>
 </body>
 </html>
