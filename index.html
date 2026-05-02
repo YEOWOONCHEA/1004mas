@@ -93,7 +93,7 @@
             <script>
                 async function updateStatus() {
                     try {
-                        const res = await fetch('https://krx.1004mas.com/api/system_state');
+                        const res = await fetch(`https://krx.1004mas.com/api/system_state?t=${Date.now()}`);
                         const data = await res.json();
                         const dot = document.getElementById('system-status-dot');
                         const text = document.getElementById('system-status-text');
@@ -138,7 +138,7 @@
                         }
 
                         // [v4.1] 개별 노드 건강상태 체크 (LED 점등)
-                        const healthRes = await fetch('https://krx.1004mas.com/api/system_health');
+                        const healthRes = await fetch(`https://krx.1004mas.com/api/system_health?t=${Date.now()}`);
                         const health = await healthRes.json();
                         Object.keys(health).forEach(node => {
                             const nodeDot = document.getElementById(`status-${node.replace('_','-')}`);
@@ -160,7 +160,7 @@
 
                 async function setSystemState(state, target = 'global') {
                     try {
-                        const res = await fetch('https://krx.1004mas.com/api/system_state', {
+                        const res = await fetch(`https://krx.1004mas.com/api/system_state?t=${Date.now()}`, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ state: state, target: target })
@@ -175,7 +175,7 @@
 
                 async function toggleNode(nodeId) {
                     try {
-                        const res = await fetch('https://krx.1004mas.com/api/system_state');
+                        const res = await fetch(`https://krx.1004mas.com/api/system_state?t=${Date.now()}`);
                         const data = await res.json();
                         const newState = data[nodeId] === 'START' ? 'STOP' : 'START';
                         await setSystemState(newState, nodeId);
